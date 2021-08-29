@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShopSolution.WebApp
+namespace ShopSolution.WebAppMVC
 {
     public class Program
     {
