@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShopSolution.Data.Configurations;
 using ShopSolution.Data.Entities;
+using ShopSolution.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -32,6 +33,8 @@ namespace ShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
+            //Data seeding
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
 
