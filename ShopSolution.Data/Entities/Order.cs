@@ -18,5 +18,8 @@ namespace ShopSolution.Data.Entities
 
         public List<OrderDetail> OrderDetails { get; set; }
 
+        //Identity
+        public AppUser AppUser { get; set; }
+
     }
 }

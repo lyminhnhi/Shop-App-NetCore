@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopSolution.Data.EF;
 
 namespace ShopSolution.Data.Migrations
 {
     [DbContext(typeof(ShopDBContext))]
-    partial class ShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210908162654_seedidentity")]
+    partial class seedidentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,7 +177,7 @@ namespace ShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("c18cce85-c859-476f-b73f-f149887ec6a8"),
-                            ConcurrencyStamp = "6f841a6f-aef5-4696-a33b-ffbc12c9d723",
+                            ConcurrencyStamp = "c1d8d264-1d4c-4d4e-b8b0-16dcf9c6f674",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -252,7 +254,7 @@ namespace ShopSolution.Data.Migrations
                         {
                             Id = new Guid("348ebb33-349e-4d60-aae0-83ff6e31214e"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "16f10d9d-cd22-4d88-9b33-75e9c2bb0688",
+                            ConcurrencyStamp = "ad680bfa-b22d-4a1a-81cb-36324b6f0b66",
                             DOB = new DateTime(2020, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "NhiLM@gmail.com",
                             EmailConfirmed = true,
@@ -261,7 +263,7 @@ namespace ShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NhiLM@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDBxFdSOrallb3uQngAtGHXyhNxxFRhVYe3y1SUiCWjsOFRC/nkN6WidKp/bPumJKw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAyYVm1JMc+RiaSgJWc+k1Gsvqmc7zM6vBrIlTmApgc0rn4qNrv8sMvkDDJPKTOaAQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -396,40 +398,40 @@ namespace ShopSolution.Data.Migrations
                             Id = 1,
                             CategoryId = 1,
                             LanguageId = "vi-VN",
-                            Name = "Áo nam",
-                            SeoAlias = "ao-nam",
-                            SeoDescription = "Sản phẩm áo thời trang nam",
-                            SeoTitle = "Sản phẩm áo thời trang nam"
+                            Name = "Trái Cây",
+                            SeoAlias = "trai-cay",
+                            SeoDescription = "Sản phẩm trái cây",
+                            SeoTitle = "Sản phẩm trái cây"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
                             LanguageId = "en-US",
-                            Name = "Men Shirt",
-                            SeoAlias = "men-shirt",
-                            SeoDescription = "The shirt products for men",
-                            SeoTitle = "The shirt products for men"
+                            Name = "Fruit",
+                            SeoAlias = "fruit",
+                            SeoDescription = "The fruit products",
+                            SeoTitle = "The fruit products"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 2,
                             LanguageId = "vi-VN",
-                            Name = "Áo nữ",
-                            SeoAlias = "ao-nu",
-                            SeoDescription = "Sản phẩm áo thời trang nữ",
-                            SeoTitle = "Sản phẩm áo thời trang women"
+                            Name = "Rau Củ Quả",
+                            SeoAlias = "rau-cu-qua",
+                            SeoDescription = "Rau Củ Quả",
+                            SeoTitle = "Rau Củ Quả"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 2,
                             LanguageId = "en-US",
-                            Name = "Women Shirt",
-                            SeoAlias = "women-shirt",
-                            SeoDescription = "The shirt products for women",
-                            SeoTitle = "The shirt products for women"
+                            Name = "Vegetable",
+                            SeoAlias = "vegetable",
+                            SeoDescription = "Vegetable",
+                            SeoTitle = "Vegetable"
                         });
                 });
 
@@ -606,9 +608,9 @@ namespace ShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 9, 9, 0, 7, 43, 660, DateTimeKind.Local).AddTicks(5615),
-                            OriginalPrice = 100000m,
-                            Price = 200000m,
+                            DateCreated = new DateTime(2021, 9, 8, 23, 26, 53, 860, DateTimeKind.Local).AddTicks(3057),
+                            OriginalPrice = 10m,
+                            Price = 20m,
                             Stock = 0,
                             ViewCount = 0
                         });
@@ -689,26 +691,26 @@ namespace ShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Áo sơ mi nam trắng Việt Tiến",
-                            Details = "Áo sơ mi nam trắng Việt Tiến",
+                            Description = "Táo",
+                            Details = "Táo",
                             LanguageId = "vi-VN",
-                            Name = "Áo sơ mi nam trắng Việt Tiến",
+                            Name = "Táo",
                             ProductId = 1,
-                            SeoAlias = "ao-so-mi-nam-trang-viet-tien",
-                            SeoDescription = "Áo sơ mi nam trắng Việt Tiến",
-                            SeoTitle = "Áo sơ mi nam trắng Việt Tiến"
+                            SeoAlias = "tao",
+                            SeoDescription = "tao",
+                            SeoTitle = "tao"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Viet Tien Men T-Shirt",
-                            Details = "Viet Tien Men T-Shirt",
+                            Description = "Apple",
+                            Details = "Apple",
                             LanguageId = "en-US",
-                            Name = "Viet Tien Men T-Shirt",
+                            Name = "Apple",
                             ProductId = 1,
-                            SeoAlias = "viet-tien-men-t-shirt",
-                            SeoDescription = "Viet Tien Men T-Shirt",
-                            SeoTitle = "Viet Tien Men T-Shirt"
+                            SeoAlias = "apple",
+                            SeoDescription = "apple",
+                            SeoTitle = "apple"
                         });
                 });
 

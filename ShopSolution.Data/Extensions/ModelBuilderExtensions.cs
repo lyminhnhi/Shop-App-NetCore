@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ShopSolution.Data.Entities;
 using ShopSolution.Data.Enums;
 using System;
@@ -42,41 +43,41 @@ namespace ShopSolution.Data.Extensions
                   {
                       Id = 1,
                       CategoryId = 1,
-                      Name = "Trái Cây",
+                      Name = "Áo nam",
                       LanguageId = "vi-VN",
-                      SeoAlias = "trai-cay",
-                      SeoDescription = "Sản phẩm trái cây",
-                      SeoTitle = "Sản phẩm trái cây"
+                      SeoAlias = "ao-nam",
+                      SeoDescription = "Sản phẩm áo thời trang nam",
+                      SeoTitle = "Sản phẩm áo thời trang nam"
                   },
                   new CategoryTranslation()
                   {
                       Id = 2,
                       CategoryId = 1,
-                      Name = "Fruit",
+                      Name = "Men Shirt",
                       LanguageId = "en-US",
-                      SeoAlias = "fruit",
-                      SeoDescription = "The fruit products",
-                      SeoTitle = "The fruit products"
+                      SeoAlias = "men-shirt",
+                      SeoDescription = "The shirt products for men",
+                      SeoTitle = "The shirt products for men"
                   },
                   new CategoryTranslation()
                   {
                       Id = 3,
                       CategoryId = 2,
-                      Name = "Rau Củ Quả",
+                      Name = "Áo nữ",
                       LanguageId = "vi-VN",
-                      SeoAlias = "rau-cu-qua",
-                      SeoDescription = "Rau Củ Quả",
-                      SeoTitle = "Rau Củ Quả"
+                      SeoAlias = "ao-nu",
+                      SeoDescription = "Sản phẩm áo thời trang nữ",
+                      SeoTitle = "Sản phẩm áo thời trang women"
                   },
                   new CategoryTranslation()
                   {
                       Id = 4,
                       CategoryId = 2,
-                      Name = "Vegetable",
+                      Name = "Women Shirt",
                       LanguageId = "en-US",
-                      SeoAlias = "vegetable",
-                      SeoDescription = "Vegetable",
-                      SeoTitle = "Vegetable"
+                      SeoAlias = "women-shirt",
+                      SeoDescription = "The shirt products for women",
+                      SeoTitle = "The shirt products for women"
                   }
                     );
 
@@ -85,8 +86,8 @@ namespace ShopSolution.Data.Extensions
            {
                Id = 1,
                DateCreated = DateTime.Now,
-               OriginalPrice = 10,
-               Price = 20,
+               OriginalPrice = 100000,
+               Price = 200000,
                Stock = 0,
                ViewCount = 0,
            });
@@ -95,29 +96,62 @@ namespace ShopSolution.Data.Extensions
                  {
                      Id = 1,
                      ProductId = 1,
-                     Name = "Táo",
+                     Name = "Áo sơ mi nam trắng Việt Tiến",
                      LanguageId = "vi-VN",
-                     SeoAlias = "tao",
-                     SeoDescription = "tao",
-                     SeoTitle = "tao",
-                     Details = "Táo",
-                     Description = "Táo"
+                     SeoAlias = "ao-so-mi-nam-trang-viet-tien",
+                     SeoDescription = "Áo sơ mi nam trắng Việt Tiến",
+                     SeoTitle = "Áo sơ mi nam trắng Việt Tiến",
+                     Details = "Áo sơ mi nam trắng Việt Tiến",
+                     Description = "Áo sơ mi nam trắng Việt Tiến"
                  },
                     new ProductTranslation()
                     {
                         Id = 2,
                         ProductId = 1,
-                        Name = "Apple",
+                        Name = "Viet Tien Men T-Shirt",
                         LanguageId = "en-US",
-                        SeoAlias = "apple",
-                        SeoDescription = "apple",
-                        SeoTitle = "apple",
-                        Details = "Apple",
-                        Description = "Apple"
+                        SeoAlias = "viet-tien-men-t-shirt",
+                        SeoDescription = "Viet Tien Men T-Shirt",
+                        SeoTitle = "Viet Tien Men T-Shirt",
+                        Details = "Viet Tien Men T-Shirt",
+                        Description = "Viet Tien Men T-Shirt"
                     });
             modelBuilder.Entity<ProductInCategory>().HasData(
                 new ProductInCategory() { ProductId = 1, CategoryId = 1 }
                 );
+
+            // for Identity Table Seeding
+            var roleId = new Guid("C18CCE85-C859-476F-B73F-F149887EC6A8");
+            var adminId = new Guid("348EBB33-349E-4D60-AAE0-83FF6E31214E");
+            modelBuilder.Entity<AppRole>().HasData(new AppRole
+            {
+                Id = roleId,
+                Name = "admin",
+                NormalizedName = "admin",
+                Description = "Administrator role"
+            });
+
+            var hasher = new PasswordHasher<AppUser>();
+            modelBuilder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = adminId,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "NhiLM@gmail.com",
+                NormalizedEmail = "NhiLM@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "abc1234"),
+                SecurityStamp = string.Empty,
+                FirstName = "Nhi",
+                LastName = "LM",
+                DOB = new DateTime(2020, 09, 09)
+            });
+
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+            {
+                RoleId = roleId,
+                UserId = adminId
+            });
         }
     }
 }
