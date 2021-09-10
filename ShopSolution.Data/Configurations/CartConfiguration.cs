@@ -12,11 +12,11 @@ namespace ShopSolution.Data.Configurations
         public void Configure(EntityTypeBuilder<Cart> builder)
         {
             builder.ToTable("Carts");
-            builder.HasKey(x => x.Id);
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id).UseIdentityColumn();
 
-            builder.Property(x => x.Id).UseIdentityColumn();
-            builder.HasOne(x => x.Product).WithMany(x => x.Carts).HasForeignKey(x => x.ProductId);
-
+            builder.HasOne(c => c.Product).WithMany(p => p.Carts).HasForeignKey(c => c.ProductId);
+            builder.HasOne(c => c.AppUser).WithMany(u => u.Carts).HasForeignKey(c => c.UserId);
         }
     }
 }
