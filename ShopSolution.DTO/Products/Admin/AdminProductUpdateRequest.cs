@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShopSolution.Data.Entities
+namespace ShopSolution.ViewModels.Products.Admin
 {
-    public class ProductTranslation
+    public class AdminProductUpdateRequest
     {
         public int Id { set; get; }
-        public int ProductId { set; get; }
         public string Name { set; get; }
         public string Description { set; get; }
         public string Details { set; get; }
@@ -16,9 +16,6 @@ namespace ShopSolution.Data.Entities
 
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
-
-        public Product Product { get; set; }
-        public Language Language { get; set; }
-
+        public IFormFile ThumbnailImage { get; set; }
     }
 }
