@@ -9,7 +9,7 @@ namespace ShopSolution.AppService.ProductServices.Public
 {
     public interface IPublicProductService
     {
-        Task<PageResult<ProductViewModel>> GetAllByCategoryId(PublicProductPagingRequest request);
-        Task<List<ProductViewModel>> GetAll();
+        Task<PageResult<ProductViewModel>> GetAllByCategoryId(PublicProductPagingRequest request, string languageId);
+        Task<List<ProductViewModel>> GetAll(string languageId);
     }
 }
