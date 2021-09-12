@@ -10,5 +10,6 @@ namespace ShopSolution.AppService.ProductServices.Public
     public interface IPublicProductService
     {
         Task<PageResult<ProductViewModel>> GetAllByCategoryId(PublicProductPagingRequest request);
+        Task<List<ProductViewModel>> GetAll();
     }
 }
