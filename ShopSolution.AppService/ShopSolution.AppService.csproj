@@ -8,7 +8,7 @@
     <ProjectReference Include="..\ShopSolution.Data\ShopSolution.Data.csproj" />
     <ProjectReference Include="..\ShopSolution.DTO\ShopSolution.ViewModels.csproj" />
     <ProjectReference Include="..\ShopSolution.Utilities\ShopSolution.Utilities.csproj" />
-    <ProjectReference Include="..\ShopSolution.WebAppMVC\ShopSolution.WebAppMVC.csproj" />
+    <ProjectReference Include="..\ShopSolution.WebAppMVC\ShopSolution.WebApp.csproj" />
   </ItemGroup>
 
 </Project>
