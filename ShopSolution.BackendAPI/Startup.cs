@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ShopSolution.AppService.ProductServices.Public;
+using ShopSolution.AppService.ProductServices.Admin;
+using ShopSolution.AppService.StoreServices;
 using ShopSolution.Data.EF;
 using ShopSolution.Utilities.Constants;
 using System;
@@ -33,6 +35,9 @@ namespace ShopSolution.BackendAPI
 
             //DI
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IAdminProductService, AdminProductService>();
+            services.AddTransient<IFileStorageService, FileStorageService>();
+
             services.AddControllersWithViews();
 
             //Swagger

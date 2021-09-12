@@ -17,6 +17,6 @@ namespace ShopSolution.ViewModels.Products.Admin
         public string SeoTitle { set; get; }
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
-        public IFormFile ThumbnailImage { get; set; }
+        public IFormFile ImageFile { get; set; }
     }
 }
