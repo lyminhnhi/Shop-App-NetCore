@@ -15,6 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ShopSolution.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using ShopSolution.AppService.UserServices;
 
 namespace ShopSolution.BackendAPI
 {
@@ -32,11 +35,18 @@ namespace ShopSolution.BackendAPI
         {
             services.AddDbContext<ShopDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.mainConnectionString)));
-
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<ShopDBContext>()
+                .AddDefaultTokenProviders();
             //DI
             services.AddTransient<IPublicProductService, PublicProductService>();
             services.AddTransient<IAdminProductService, AdminProductService>();
             services.AddTransient<IFileStorageService, FileStorageService>();
+
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<IUserService, UserService>();
 
             services.AddControllersWithViews();
 
